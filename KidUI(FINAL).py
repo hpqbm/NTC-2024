@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -10,13 +11,21 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 
-st.write("""
-Welcome back.....""")
+HTML = '''
+<h1 style="color:blue;">🎉Smart Buddy🎉</h1>
+'''
+st.markdown(HTML, unsafe_allow_html = True)
+
 
 #anthropic_key = "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"
 #ai_model = "claude-3-sonnet-20240229"
-st.title("NTC Chatbot")
+st.text("I am your study assistant! Ask me questions and I will try to answer!")
+# student url in school account
 url = 'https://sc7e7xcl71.execute-api.ap-southeast-1.amazonaws.com/test/ntc-test'
+# url with RAG
+# url =  'https://hqrzin7005.execute-api.ap-southeast-1.amazonaws.com/rag/ntc-student'
+# original url
+#url = 'https://bg68z5nea2.execute-api.ap-southeast-1.amazonaws.com/test/ntc-student'
 headers = {'Accept': 'application/json'}
 auth = HTTPBasicAuth('kRKNFaknPj2dhCHlHLACyPQJ3x9Rptn3Aywwzq64', '1234abcd')
 data = [{"role": "user", "content": "Hi"}]
